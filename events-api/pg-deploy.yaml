@@ -47,12 +47,12 @@ spec:
               name: pg-data
           readinessProbe:
             exec:
-              command: ["pg_isready -U $POSTGRES_USER"]
+              command: ["sh -c 'pg_isready -U $POSTGRES_USER'"]
             initialDelaySeconds: 10
             timeoutSeconds: 2
           livenessProbe:
             exec:
-              command: ["pg_isready -U $POSTGRES_USER"]
+              command: ["sh -c 'pg_isready -U $POSTGRES_USER'"]
             initialDelaySeconds: 20
             timeoutSeconds: 2
       volumes:
